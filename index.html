@@ -73,6 +73,30 @@
             --skill-bg: #f1f5f9;
         }
 
+        /* ==================== SCROLL PROGRESS BAR ==================== */
+        #scroll-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            z-index: 9999;
+            transition: width 0.2s ease-out;
+        }
+
+        /* ==================== SCROLL REVEAL ANIMATION ==================== */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ==================== INTRO ANIMATION STYLES ==================== */
         #intro-screen {
             position: fixed;
@@ -562,6 +586,8 @@
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
+            transition: transform 0.1s ease-out;
+            will-change: transform;
         }
 
         /* Floating SVG Icons */
@@ -864,7 +890,7 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.05);
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
         }
 
@@ -884,14 +910,6 @@
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .section-title.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .section-title h2 {
@@ -910,6 +928,147 @@
             font-size: 0.9rem;
         }
 
+        /* ==================== STATS SECTION ==================== */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            min-width: 150px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .stat-box {
+            background: #ffffff;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #e2e8f0;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--glass-border-hover);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.25);
+        }
+
+        .light-mode .stat-box:hover {
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .stat-box h3 {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* ==================== SERVICES SECTION STYLES ==================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .light-mode .service-card {
+            background: #ffffff;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #e2e8f0;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--glass-border-hover);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3);
+        }
+
+        .light-mode .service-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.4);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            padding: 0.6rem;
+        }
+
+        .light-mode .service-icon {
+            background: var(--icon-bg);
+            border: 1px solid #dbeafe;
+        }
+
+        .service-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: white;
+        }
+
+        .light-mode .service-icon svg {
+            fill: #2563eb;
+        }
+
+        .service-card h3 {
+            color: var(--accent-blue);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
         /* NEW SKILLS SECTION STYLES */
         .skills-grid {
             display: grid;
@@ -925,8 +1084,6 @@
             border-radius: 20px;
             padding: 2.5rem 2rem;
             transition: all 0.4s ease;
-            opacity: 0;
-            transform: translateY(30px);
             position: relative;
             overflow: hidden;
         }
@@ -951,11 +1108,6 @@
 
         .skill-category-card:hover::before {
             opacity: 1;
-        }
-
-        .skill-category-card.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .skill-category-card:hover {
@@ -1083,8 +1235,8 @@
             border-radius: 20px;
             padding: 2rem;
             transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
+            display: flex;
+            flex-direction: column;
         }
 
         .light-mode .glass-card {
@@ -1093,15 +1245,10 @@
             border: 1px solid #e2e8f0;
         }
 
-        .glass-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         .glass-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--glass-border-hover);
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 15px 45px rgba(59, 130, 246, 0.35);
         }
 
         .light-mode .glass-card:hover {
@@ -1124,6 +1271,57 @@
         .institution, .location, .role {
             color: var(--text-secondary);
             line-height: 1.6;
+        }
+
+        /* Project Card Enhancements */
+        .project-card {
+            position: relative;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-card .role {
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+
+        .light-mode .project-icon {
+            background: var(--icon-bg);
+        }
+
+        .project-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .light-mode .project-icon svg {
+            fill: #2563eb;
+        }
+
+        .project-card .btn {
+            margin-top: auto;
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
         }
 
         /* Experience */
@@ -1167,19 +1365,12 @@
             padding: 1.5rem;
             transition: all 0.3s ease;
             text-align: center;
-            opacity: 0;
-            transform: scale(0.95);
         }
 
         .light-mode .cert-card {
             background: #ffffff;
             box-shadow: var(--card-shadow);
             border: 1px solid #e2e8f0;
-        }
-
-        .cert-card.visible {
-            opacity: 1;
-            transform: scale(1);
         }
 
         .cert-card:hover {
@@ -1245,19 +1436,12 @@
             padding: 2rem;
             transition: all 0.3s ease;
             margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(20px);
         }
 
         .light-mode .event-card {
             background: #ffffff;
             box-shadow: var(--card-shadow);
             border: 1px solid #e2e8f0;
-        }
-
-        .event-card.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .event-card:hover {
@@ -1325,6 +1509,19 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+
+            .stats-container {
+                gap: 1.5rem;
+            }
+
+            .stat-box {
+                min-width: 120px;
+                padding: 1.5rem;
+            }
+
+            .stat-box h3 {
+                font-size: 2rem;
+            }
             
             .nav-links {
                 display: none;
@@ -1353,6 +1550,9 @@
     </style>
 </head>
 <body>
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="scroll-progress-bar"></div>
+
     <!-- ==================== INTRO SCREEN ==================== -->
     <div id="intro-screen">
         <!-- Background Code -->
@@ -1588,6 +1788,8 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#skills" class="active">Skills</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#stats">Stats</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#certifications">Certifications</a></li>
@@ -1619,18 +1821,18 @@
 
         <!-- Education Section -->
         <section id="education">
-            <div class="section-title">
+            <div class="section-title scroll-reveal">
                 <h2>Education</h2>
                 <p>Academic Background</p>
             </div>
             <div class="education-grid">
-                <div class="glass-card education-card">
+                <div class="glass-card education-card scroll-reveal">
                     <h3>B.Tech – Artificial Intelligence and Data Science</h3>
                     <p class="duration">2023 – 2027</p>
                     <p class="institution">Dhanalakshmi Srinivasan University</p>
                     <p class="location">Tiruchirappalli, Tamil Nadu</p>
                 </div>
-                <div class="glass-card education-card">
+                <div class="glass-card education-card scroll-reveal">
                     <h3>Higher Secondary</h3>
                     <p class="duration">2023</p>
                     <p class="institution">Maharishi Vidhya Mandir Matric Hr. Sec. School</p>
@@ -1641,13 +1843,13 @@
 
         <!-- Skills Section -->
         <section id="skills">
-            <div class="section-title">
+            <div class="section-title scroll-reveal">
                 <h2>Skills</h2>
                 <p>Technical Expertise</p>
             </div>
             <div class="skills-grid">
                 <!-- Programming & Core Skills -->
-                <div class="skill-category-card">
+                <div class="skill-category-card scroll-reveal">
                     <div class="skill-category-header">
                         <div class="skill-icon">
                             <svg viewBox="0 0 24 24">
@@ -1677,7 +1879,7 @@
                 </div>
 
                 <!-- Data Analysis -->
-                <div class="skill-category-card">
+                <div class="skill-category-card scroll-reveal">
                     <div class="skill-category-header">
                         <div class="skill-icon">
                             <svg viewBox="0 0 24 24">
@@ -1711,7 +1913,7 @@
                 </div>
 
                 <!-- Business Analytics -->
-                <div class="skill-category-card">
+                <div class="skill-category-card scroll-reveal">
                     <div class="skill-category-header">
                         <div class="skill-icon">
                             <svg viewBox="0 0 24 24">
@@ -1745,7 +1947,7 @@
                 </div>
 
                 <!-- Machine Learning -->
-                <div class="skill-category-card">
+                <div class="skill-category-card scroll-reveal">
                     <div class="skill-category-header">
                         <div class="skill-icon">
                             <svg viewBox="0 0 24 24">
@@ -1778,7 +1980,7 @@
                 </div>
 
                 <!-- Visualization & Tools -->
-                <div class="skill-category-card">
+                <div class="skill-category-card scroll-reveal">
                     <div class="skill-category-header">
                         <div class="skill-icon">
                             <svg viewBox="0 0 24 24">
@@ -1809,7 +2011,7 @@
                 </div>
 
                 <!-- Soft Skills & Leadership -->
-                <div class="skill-category-card">
+                <div class="skill-category-card scroll-reveal">
                     <div class="skill-category-header">
                         <div class="skill-icon">
                             <svg viewBox="0 0 24 24">
@@ -1840,49 +2042,255 @@
             </div>
         </section>
 
+        <!-- Services Section -->
+        <section id="services">
+            <div class="section-title scroll-reveal">
+                <h2>Services</h2>
+                <p>What I Offer</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1: Data Analysis & Insights -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 13h2v8H3v-8zm4-5h2v13H7V8zm4-5h2v18h-2V3zm4 7h2v11h-2V10zm4-4h2v15h-2V6z"/>
+                        </svg>
+                    </div>
+                    <h3>Data Analysis & Insights</h3>
+                    <p>Analyze structured and unstructured datasets using Python, Pandas, NumPy, and statistical methods to extract meaningful insights and support decision-making.</p>
+                </div>
+
+                <!-- Service 2: Machine Learning Model Development -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="7" cy="14" r="3"/>
+                            <circle cx="11" cy="6" r="3"/>
+                            <circle cx="16.5" cy="18" r="3"/>
+                            <path d="M9.2 12.3l2.6-4.6M13.4 7.3l2.2 8.4"/>
+                        </svg>
+                    </div>
+                    <h3>Machine Learning Model Development</h3>
+                    <p>Build predictive machine learning models using Scikit-learn for regression, classification, and forecasting with proper evaluation and optimization.</p>
+                </div>
+
+                <!-- Service 3: Dashboard Development -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3>Dashboard Development</h3>
+                    <p>Develop interactive dashboards using Power BI, Streamlit, and visualization libraries to present insights clearly and effectively.</p>
+                </div>
+
+                <!-- Service 4: Data Cleaning & Preprocessing -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <ellipse cx="12" cy="5" rx="8" ry="3"/>
+                            <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/>
+                            <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
+                        </svg>
+                    </div>
+                    <h3>Data Cleaning & Preprocessing</h3>
+                    <p>Clean, transform, and prepare datasets by handling missing values, outliers, and inconsistencies to ensure accurate analysis.</p>
+                </div>
+
+                <!-- Service 5: Business Analytics Solutions -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3.5 18.5l6-6 4 4L22 6.5"/>
+                            <path d="M14 6.5h8v8"/>
+                        </svg>
+                    </div>
+                    <h3>Business Analytics Solutions</h3>
+                    <p>Identify KPIs, analyze performance metrics, and provide data-driven recommendations for business improvement.</p>
+                </div>
+
+                <!-- Service 6: End-to-End Data Science Projects -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3>End-to-End Data Science Projects</h3>
+                    <p>Develop complete data science solutions including data collection, preprocessing, modeling, evaluation, and visualization.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO STATS SECTION -->
+        <section id="stats">
+            <div class="section-title scroll-reveal">
+                <h2>Portfolio Stats</h2>
+                <p>Professional Highlights</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-box scroll-reveal">
+                    <h3 id="projects-count">0</h3>
+                    <p>Projects</p>
+                </div>
+                <div class="stat-box scroll-reveal">
+                    <h3 id="cert-count">0</h3>
+                    <p>Certifications</p>
+                </div>
+                <div class="stat-box scroll-reveal">
+                    <h3 id="exp-count">0</h3>
+                    <p>Experiences</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Section -->
         <section id="projects">
-            <div class="section-title">
+            <div class="section-title scroll-reveal">
                 <h2>Projects</h2>
                 <p>Featured Work</p>
             </div>
             <div class="projects-grid">
-                <div class="glass-card project-card">
+                <!-- Project 1: Born 2 Ride -->
+                <div class="glass-card project-card scroll-reveal">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                    </div>
                     <h3>Born 2 Ride – Travel Planner & Fuel Cost Estimator</h3>
-                    <p>Estimates fuel cost using vehicle type, mileage, and distance. Recommends hotels, lodges, and street-food locations.</p>
+                    <p>ML-powered travel planning system that estimates fuel cost using vehicle mileage, distance, and fuel price. Provides hotel, lodge, and street-food recommendations using location intelligence. Built with Python and analytics logic.</p>
                     <p class="role">Role: Concept creation, logic design, business model planning</p>
+                    <a href="https://github.com/Mukeshram-07/Born2Ride" target="_blank" class="btn btn-primary">View Project</a>
                 </div>
-                <div class="glass-card project-card">
+
+                <!-- Project 2: Trichy Restaurant Data Analytics -->
+                <div class="glass-card project-card scroll-reveal">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
                     <h3>Trichy Restaurant Data Analytics</h3>
-                    <p>Survey-based project using 6,000+ real responses. Data cleaning, KPI identification, dashboard logic planning.</p>
+                    <p>Analyzed 6000+ real survey responses using Python, Pandas, and Power BI. Performed data cleaning, KPI extraction, and dashboard development to identify restaurant trends and customer behavior.</p>
                     <p class="role">Role: Data Analysis & Dashboard Design</p>
+                    <a href="https://github.com/Mukeshram-07/Trichy-Restaurant-Data-Analytics" target="_blank" class="btn btn-primary">View Project</a>
                 </div>
-                <div class="glass-card project-card">
+
+                <!-- Project 3: Movie Ratings Analysis -->
+                <div class="glass-card project-card scroll-reveal">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <ellipse cx="12" cy="5" rx="8" ry="3"/>
+                            <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/>
+                            <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
+                        </svg>
+                    </div>
                     <h3>Movie Ratings Analysis</h3>
-                    <p>Dataset: 550,000+ records. Team Lead (6 members), dataset preparation, correlation analysis.</p>
+                    <p>Analyzed 550,000+ movie rating records. Performed correlation analysis, trend detection, and statistical insights. Led dataset preprocessing and analytics workflow.</p>
                     <p class="role">Role: Team Lead - Launchspring Internship</p>
+                    <a href="https://github.com/Mukeshram-07/Movie-Ratings-Analysis" target="_blank" class="btn btn-primary">View Project</a>
                 </div>
-                <div class="glass-card project-card">
-                    <h3>Research Paper – "Segmentation of AI"</h3>
-                    <p>Presented at Dhanalakshmi Srinivasan University. Focus: AI domains, implementation patterns, future directions.</p>
+
+                <!-- Project 4: Segmentation of AI - Research -->
+                <div class="glass-card project-card scroll-reveal">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                    </div>
+                    <h3>Segmentation of AI – Research Project</h3>
+                    <p>Research project focused on segmentation of Artificial Intelligence domains, architecture patterns, and real-world implementation frameworks. Includes research documentation and technical analysis.</p>
                     <p class="role">Role: Lead Author</p>
+                    <a href="https://drive.google.com/drive/folders/1WYWV3cFeCiIHUdKcqdZ4jJbkNG7TvlsV" target="_blank" class="btn btn-primary">View Research</a>
                 </div>
-                <div class="glass-card project-card">
-                    <h3>Study Buddy (ML-Based Learning Assistant)</h3>
-                    <p>ML-based educational assistant with concept explanation, summaries, quizzes, flowcharts, and flashcards.</p>
+
+                <!-- Project 5: Study Buddy -->
+                <div class="glass-card project-card scroll-reveal">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="7" cy="14" r="3"/>
+                            <circle cx="11" cy="6" r="3"/>
+                            <circle cx="16.5" cy="18" r="3"/>
+                            <path d="M9.2 12.3l2.6-4.6M13.4 7.3l2.2 8.4"/>
+                        </svg>
+                    </div>
+                    <h3>Study Buddy – ML-Based Learning Assistant</h3>
+                    <p>Machine learning-powered educational assistant that generates summaries, quizzes, flashcards, and concept explanations using intelligent content processing.</p>
                     <p class="role">Role: Developer & Designer</p>
+                    <a href="https://github.com/Mukeshram-07/ai-study-buddy" target="_blank" class="btn btn-primary">View Project</a>
+                </div>
+
+                <!-- Project 6: Job Market Skill Demand Analyzer -->
+                <div class="glass-card project-card scroll-reveal">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3.5 18.5l6-6 4 4L22 6.5"/>
+                            <path d="M14 6.5h8v8"/>
+                        </svg>
+                    </div>
+                    <h3>Job Market Skill Demand Analyzer</h3>
+                    <p>End-to-end data science project analyzing job market skill demand using real-time job data via API. Performs NLP-based skill extraction, trend analysis, forecasting using machine learning, and visualization dashboard using Streamlit.</p>
+                    <p class="role">Role: Full Stack Developer & Data Scientist</p>
+                    <a href="https://github.com/Mukeshram-07/job-market-skill-demand-analyzer" target="_blank" class="btn btn-primary">View Project</a>
+                </div>
+
+                <!-- Project 7: Sales Prediction Trend Analysis -->
+                <div class="glass-card project-card scroll-reveal">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="7" cy="14" r="3"/>
+                            <circle cx="11" cy="6" r="3"/>
+                            <circle cx="16.5" cy="18" r="3"/>
+                            <path d="M9.2 12.3l2.6-4.6M13.4 7.3l2.2 8.4"/>
+                        </svg>
+                    </div>
+                    <h3>Sales Prediction Trend Analysis</h3>
+                    <p>Machine learning-based sales forecasting system using historical sales data. Implements regression models, trend analysis, and predictive modeling to forecast future sales performance.</p>
+                    <p class="role">Role: ML Engineer & Data Analyst</p>
+                    <a href="https://github.com/Mukeshram-07/sales-prediction-trend-analysis" target="_blank" class="btn btn-primary">View Project</a>
+                </div>
+
+                <!-- Project 8: Delivery Delay Prediction System -->
+                <div class="glass-card project-card scroll-reveal">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="7" cy="14" r="3"/>
+                            <circle cx="11" cy="6" r="3"/>
+                            <circle cx="16.5" cy="18" r="3"/>
+                            <path d="M9.2 12.3l2.6-4.6M13.4 7.3l2.2 8.4"/>
+                        </svg>
+                    </div>
+                    <h3>Delivery Delay Prediction System</h3>
+                    <p>Machine learning classification system that predicts delivery delays using logistics and operational features. Includes data preprocessing, feature engineering, model training, and evaluation.</p>
+                    <p class="role">Role: ML Developer</p>
+                    <a href="https://github.com/Mukeshram-07/delivery-delay-prediction" target="_blank" class="btn btn-primary">View Project</a>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
         <section id="experience">
-            <div class="section-title">
+            <div class="section-title scroll-reveal">
                 <h2>Experience</h2>
                 <p>Professional Journey</p>
             </div>
             <div class="experience-timeline">
-                <div class="glass-card experience-card">
+                <!-- NEW EXPERIENCE: AI/ML Intern -->
+                <div class="glass-card experience-card scroll-reveal">
+                    <h3>AI/ML Intern – Edunet Foundation (Associated with IBM)</h3>
+                    <p class="duration">2025</p>
+                    <ul>
+                        <li>Completed AI and Machine Learning internship under IBM-supported Edunet Foundation</li>
+                        <li>Worked on real-world ML projects including prediction and analytics systems</li>
+                        <li>Gained hands-on experience with Python, Scikit-learn, Pandas, and ML workflows</li>
+                        <li>Implemented data preprocessing, feature engineering, model training, and evaluation</li>
+                        <li>Developed analytical thinking and applied AI concepts to practical use cases</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card experience-card scroll-reveal">
                     <h3>Data Analytics Intern (Team Lead) – Launchspring</h3>
                     <p class="duration">September 2025</p>
                     <ul>
@@ -1892,7 +2300,7 @@
                         <li>Directed analytics workflow</li>
                     </ul>
                 </div>
-                <div class="glass-card experience-card">
+                <div class="glass-card experience-card scroll-reveal">
                     <h3>Data Analytics OJT – VDart</h3>
                     <p class="duration">July 2025 – September 2025</p>
                     <ul>
@@ -1901,7 +2309,7 @@
                         <li>Business analytics exposure</li>
                     </ul>
                 </div>
-                <div class="glass-card experience-card">
+                <div class="glass-card experience-card scroll-reveal">
                     <h3>Vice President – Journal Club (AI & DS)</h3>
                     <p class="duration">September 2025 – Present</p>
                     <ul>
@@ -1915,97 +2323,97 @@
 
         <!-- Certifications Section -->
         <section id="certifications">
-            <div class="section-title">
+            <div class="section-title scroll-reveal">
                 <h2>Certifications</h2>
                 <p>Professional Development</p>
             </div>
             <div class="cert-grid">
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/meta.svg" alt="Meta"></div>
                     <h4>Meta Data Analyst Professional Certificate</h4>
                     <p class="issuer">Meta</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://static.thenounproject.com/png/3501937-512.png" alt="Business"></div>
                     <h4>Business Analyst</h4>
                     <p class="issuer">Agile Enterprise, London</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazonaws.svg" alt="AWS"></div>
                     <h4>AWS Academy Machine Learning Foundations</h4>
                     <p class="issuer">AWS</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/udemy.svg" alt="Udemy"></div>
                     <h4>Power BI with AI</h4>
                     <p class="issuer">Udemy</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ibm.svg" alt="IBM"></div>
                     <h4>Foundations of AI</h4>
                     <p class="issuer">IBM</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ibm.svg" alt="IBM"></div>
                     <h4>Machine Learning with Python</h4>
                     <p class="issuer">IBM</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ibm.svg" alt="IBM"></div>
                     <h4>Data Analysis with Python</h4>
                     <p class="issuer">IBM</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ibm.svg" alt="IBM"></div>
                     <h4>Data Fundamentals</h4>
                     <p class="issuer">IBM</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ibm.svg" alt="IBM"></div>
                     <h4>Getting Started with Data</h4>
                     <p class="issuer">IBM</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/cisco.svg" alt="Cisco"></div>
                     <h4>Data Science Essentials with Python</h4>
                     <p class="issuer">Cisco</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://static.thenounproject.com/png/1191142-512.png" alt="Diploma"></div>
                     <h4>Executive Diploma in Leadership & Management</h4>
                     <p class="issuer">MTF Institute</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftexcel.svg" alt="Excel"></div>
                     <h4>Excel Essentials Workbook</h4>
                     <p class="issuer">Acacia University</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tata.svg" alt="Tata"></div>
                     <h4>Tata Data Analytics Job Simulation</h4>
                     <p class="issuer">Tata</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" alt="Google"></div>
                     <h4>Foundation of Data</h4>
                     <p class="issuer">Google</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://static.thenounproject.com/png/1191142-512.png" alt="Data"></div>
                     <h4>Data Analytics</h4>
                     <p class="issuer">Grow AI</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tcs.svg" alt="TCS"></div>
                     <h4>Presentation Skills</h4>
                     <p class="issuer">TCS</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftexcel.svg" alt="Excel"></div>
                     <h4>Excel Analytics and Visualizations</h4>
                     <p class="issuer">UniAthena</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card scroll-reveal">
                     <div class="cert-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/hp.svg" alt="HP"></div>
                     <h4>Data Science</h4>
                     <p class="issuer">HP LIFE</p>
@@ -2015,34 +2423,44 @@
 
         <!-- Achievements Section -->
         <section id="achievements">
-            <div class="section-title">
+            <div class="section-title scroll-reveal">
                 <h2>Events & Achievements</h2>
                 <p>Leadership & Recognition</p>
             </div>
             <div class="achievements-events">
                 <div>
                     <h3>Events Conducted</h3>
-                    <div class="event-card">
+                    <div class="event-card scroll-reveal">
+                        <h4>Promptify – AI Image Prompt Engineering Event</h4>
+                        <p class="year">2025</p>
+                        <p>Organized and conducted an event focused on image prompt engineering using generative AI tools. Guided students in prompt design and AI creativity.</p>
+                    </div>
+                    <div class="event-card scroll-reveal">
+                        <h4>AI Summit – Research Paper Presentation</h4>
+                        <p class="year">2025</p>
+                        <p>Conducted intra-college AI summit featuring research paper presentations, technical discussions, and knowledge sharing among students.</p>
+                    </div>
+                    <div class="event-card scroll-reveal">
                         <h4>uMagineDX & ICT Academy – Panel Discussion</h4>
                         <p class="year">2025</p>
                         <p>Led coordination for industry panel discussion bringing together AI/DS experts and students.</p>
                     </div>
-                    <div class="event-card">
+                    <div class="event-card scroll-reveal">
                         <h4>AI Expert Exchange – Group Discussion</h4>
                         <p class="year">2025</p>
                         <p>Organized interactive sessions focused on current AI trends and industry perspectives.</p>
                     </div>
-                    <div class="event-card">
+                    <div class="event-card scroll-reveal">
                         <h4>Startup Spark – Innovation Event</h4>
                         <p class="year">2025</p>
                         <p>Coordinated event showcasing student startups and entrepreneurial ventures in AI/DS domain.</p>
                     </div>
-                    <div class="event-card">
+                    <div class="event-card scroll-reveal">
                         <h4>BIYOnd – Data Analytics Event</h4>
                         <p class="year">2025</p>
                         <p>Managed comprehensive data analytics event featuring workshops and competitions.</p>
                     </div>
-                    <div class="event-card">
+                    <div class="event-card scroll-reveal">
                         <h4>Neura Fest – Project Expo</h4>
                         <p class="year">2025</p>
                         <p>Supervised large-scale project exhibition showcasing innovative AI and data science projects.</p>
@@ -2050,22 +2468,27 @@
                 </div>
                 <div>
                     <h3>Achievements</h3>
-                    <div class="event-card">
+                    <div class="event-card scroll-reveal">
+                        <h4>2nd Place – Tablitics Data Analytics Competition</h4>
+                        <p class="year">2025</p>
+                        <p>Secured 2nd prize in Power BI data analytics competition. Developed interactive dashboards and extracted actionable insights using real-world dataset.</p>
+                    </div>
+                    <div class="event-card scroll-reveal">
                         <h4>Certified Data Scientist</h4>
                         <p class="year">One Roadmap</p>
                         <p>Comprehensive certification validating expertise in data science methodologies and applications.</p>
                     </div>
-                    <div class="event-card">
+                    <div class="event-card scroll-reveal">
                         <h4>3rd Place – Coding Battle</h4>
                         <p class="year">QUBEIT'24, KRCE Trichy</p>
                         <p>Secured third position in competitive coding competition demonstrating strong problem-solving skills.</p>
                     </div>
-                    <div class="event-card">
+                    <div class="event-card scroll-reveal">
                         <h4>Hackathon Participant – BioCircuitronics</h4>
                         <p class="year">2024-2025</p>
                         <p>Developed innovative solutions at the intersection of biology and technology.</p>
                     </div>
-                    <div class="event-card">
+                    <div class="event-card scroll-reveal">
                         <h4>Hackathon Participant – BioEngine</h4>
                         <p class="year">2024-2025</p>
                         <p>Contributed to bio-engineering challenge focusing on sustainable health-tech solutions.</p>
@@ -2076,7 +2499,7 @@
 
         <!-- Contact Section -->
         <section id="contact">
-            <div class="section-title">
+            <div class="section-title scroll-reveal">
                 <h2>Contact Me</h2>
                 <p>Let's Connect</p>
             </div>
@@ -2197,24 +2620,84 @@
             });
         }
 
-        // Intersection Observer for Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // ==================== NEW SCROLL ANIMATIONS ====================
 
-        const animateObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements
-        document.querySelectorAll('.section-title, .glass-card, .skill-category-card, .cert-card, .event-card').forEach(el => {
-            animateObserver.observe(el);
+        // 1. SCROLL PROGRESS BAR
+        window.addEventListener("scroll", () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            document.getElementById("scroll-progress-bar").style.width = progress + "%";
         });
+
+        // 2. FADE + SLIDE REVEAL ANIMATION
+        const revealElements = document.querySelectorAll(".scroll-reveal");
+
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("revealed");
+                    }
+                });
+            },
+            {
+                threshold: 0.1
+            }
+        );
+
+        revealElements.forEach((el) => {
+            revealObserver.observe(el);
+        });
+
+        // 3. PARALLAX SCROLL EFFECT FOR FLOATING ELEMENTS
+        window.addEventListener("scroll", () => {
+            const scrollY = window.scrollY;
+            const floatingElements = document.querySelector(".floating-elements");
+            
+            if (floatingElements) {
+                floatingElements.style.transform = "translateY(" + scrollY * 0.25 + "px)";
+            }
+        });
+
+        // 4. COUNT-UP ANIMATION FOR PORTFOLIO STATS
+        function animateCount(id, target) {
+            let count = 0;
+            const speed = target / 50;
+            
+            const update = () => {
+                count += speed;
+                if (count < target) {
+                    document.getElementById(id).innerText = Math.floor(count);
+                    requestAnimationFrame(update);
+                } else {
+                    document.getElementById(id).innerText = target;
+                }
+            };
+            
+            update();
+        }
+
+        const statsSection = document.querySelector("#stats");
+        let statsAnimated = false;
+
+        const statsObserver = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    animateCount("projects-count", 8);
+                    animateCount("cert-count", 18);
+                    animateCount("exp-count", 4);
+                }
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
 
         // Scroll event listener
         window.addEventListener('scroll', updateActiveLink);
