@@ -56,19 +56,19 @@
         }
 
         .light-mode {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
+            --bg-primary: #f4f7fb;
+            --bg-secondary: rgba(255, 255, 255, 0.85);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-muted: #64748b;
             --accent-blue: #2563eb;
             --accent-purple: #7c3aed;
-            --accent-light-blue: #1e40af;
-            --glass-border: rgba(226, 232, 240, 0.8);
-            --glass-border-hover: rgba(37, 99, 235, 0.4);
-            --nav-bg: rgba(255, 255, 255, 0.95);
-            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
-            --card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(37, 99, 235, 0.08);
+            --accent-light-blue: #3b82f6;
+            --glass-border: rgba(37, 99, 235, 0.15);
+            --glass-border-hover: rgba(37, 99, 235, 0.35);
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --card-shadow: 0 10px 30px rgba(37, 99, 235, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            --card-shadow-hover: 0 20px 50px rgba(37, 99, 235, 0.15);
             --icon-bg: linear-gradient(135deg, #eff6ff, #dbeafe);
             --skill-bg: #f1f5f9;
         }
@@ -570,6 +570,12 @@
             opacity: 1;
         }
 
+        body.light-mode {
+            background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.08), transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.08), transparent 40%),
+                        linear-gradient(to bottom, #f8fafc, #eef2f7);
+        }
+
         .light-mode {
             background-image: 
                 radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
@@ -582,7 +588,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 200vh;
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
@@ -593,34 +599,47 @@
         /* Floating SVG Icons */
         .float-icon {
             position: absolute;
-            opacity: 0.08;
-            animation: floatAround 25s infinite ease-in-out;
+            opacity: 0.06;
+            animation: professionalFloat 25s infinite ease-in-out alternate;
+            will-change: transform;
         }
 
         .light-mode .float-icon {
-            opacity: 0.06;
+            opacity: 0.05;
         }
 
         .float-icon svg {
             width: 100%;
             height: 100%;
-            fill: url(#iconGradient);
         }
 
-        .float-icon:nth-child(1) { width: 60px; height: 60px; top: 10%; left: 5%; animation-delay: 0s; animation-duration: 28s; }
-        .float-icon:nth-child(2) { width: 45px; height: 45px; top: 25%; left: 85%; animation-delay: -5s; animation-duration: 32s; }
-        .float-icon:nth-child(3) { width: 55px; height: 55px; top: 45%; left: 10%; animation-delay: -10s; animation-duration: 26s; }
-        .float-icon:nth-child(4) { width: 40px; height: 40px; top: 60%; left: 90%; animation-delay: -15s; animation-duration: 30s; }
-        .float-icon:nth-child(5) { width: 50px; height: 50px; top: 80%; left: 15%; animation-delay: -8s; animation-duration: 34s; }
-        .float-icon:nth-child(6) { width: 35px; height: 35px; top: 15%; left: 70%; animation-delay: -12s; animation-duration: 29s; }
-        .float-icon:nth-child(7) { width: 48px; height: 48px; top: 70%; left: 75%; animation-delay: -18s; animation-duration: 27s; }
-        .float-icon:nth-child(8) { width: 42px; height: 42px; top: 35%; left: 50%; animation-delay: -3s; animation-duration: 31s; }
+        /* Enhanced float positions for better coverage */
+        .float-icon:nth-child(1) { width: 55px; height: 55px; top: 8%; left: 5%; animation-delay: 0s; animation-duration: 28s; }
+        .float-icon:nth-child(2) { width: 48px; height: 48px; top: 18%; left: 85%; animation-delay: -5s; animation-duration: 32s; }
+        .float-icon:nth-child(3) { width: 52px; height: 52px; top: 28%; left: 15%; animation-delay: -10s; animation-duration: 26s; }
+        .float-icon:nth-child(4) { width: 45px; height: 45px; top: 38%; left: 88%; animation-delay: -15s; animation-duration: 30s; }
+        .float-icon:nth-child(5) { width: 50px; height: 50px; top: 48%; left: 10%; animation-delay: -8s; animation-duration: 34s; }
+        .float-icon:nth-child(6) { width: 42px; height: 42px; top: 58%; left: 72%; animation-delay: -12s; animation-duration: 29s; }
+        .float-icon:nth-child(7) { width: 54px; height: 54px; top: 68%; left: 20%; animation-delay: -18s; animation-duration: 27s; }
+        .float-icon:nth-child(8) { width: 46px; height: 46px; top: 78%; left: 65%; animation-delay: -3s; animation-duration: 31s; }
+        .float-icon:nth-child(9) { width: 51px; height: 51px; top: 12%; left: 45%; animation-delay: -7s; animation-duration: 33s; }
+        .float-icon:nth-child(10) { width: 44px; height: 44px; top: 25%; left: 60%; animation-delay: -14s; animation-duration: 28s; }
+        .float-icon:nth-child(11) { width: 49px; height: 49px; top: 35%; left: 30%; animation-delay: -9s; animation-duration: 35s; }
+        .float-icon:nth-child(12) { width: 47px; height: 47px; top: 45%; left: 78%; animation-delay: -11s; animation-duration: 29s; }
+        .float-icon:nth-child(13) { width: 53px; height: 53px; top: 55%; left: 90%; animation-delay: -16s; animation-duration: 31s; }
+        .float-icon:nth-child(14) { width: 43px; height: 43px; top: 65%; left: 8%; animation-delay: -4s; animation-duration: 27s; }
+        .float-icon:nth-child(15) { width: 50px; height: 50px; top: 75%; left: 50%; animation-delay: -13s; animation-duration: 32s; }
 
-        @keyframes floatAround {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(30px, -40px) rotate(5deg); }
-            50% { transform: translate(-20px, -80px) rotate(-3deg); }
-            75% { transform: translate(40px, -40px) rotate(4deg); }
+        @keyframes professionalFloat {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-120px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         /* Floating Particles */
@@ -712,9 +731,10 @@
         }
 
         .light-mode .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid #e2e8f0;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .nav-container {
@@ -886,7 +906,7 @@
 
         .light-mode .btn-primary {
             background: linear-gradient(135deg, #2563eb, #7c3aed);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
         }
 
         .btn-primary:hover {
@@ -895,7 +915,7 @@
         }
 
         .light-mode .btn-primary:hover {
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
         }
 
         /* Sections */
@@ -949,9 +969,9 @@
         }
 
         .light-mode .stat-box {
-            background: #ffffff;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(37, 99, 235, 0.1);
         }
 
         .stat-box:hover {
@@ -997,9 +1017,9 @@
         }
 
         .light-mode .service-card {
-            background: #ffffff;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(37, 99, 235, 0.1);
         }
 
         .service-card::before {
@@ -1089,9 +1109,9 @@
         }
 
         .light-mode .skill-category-card {
-            background: #ffffff;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(37, 99, 235, 0.1);
         }
 
         .skill-category-card::before {
@@ -1240,9 +1260,9 @@
         }
 
         .light-mode .glass-card {
-            background: #ffffff;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(37, 99, 235, 0.1);
         }
 
         .glass-card:hover {
@@ -1252,7 +1272,7 @@
         }
 
         .light-mode .glass-card:hover {
-            box-shadow: var(--card-shadow-hover);
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
             border-color: rgba(37, 99, 235, 0.3);
         }
 
@@ -1368,9 +1388,9 @@
         }
 
         .light-mode .cert-card {
-            background: #ffffff;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(37, 99, 235, 0.1);
         }
 
         .cert-card:hover {
@@ -1439,9 +1459,9 @@
         }
 
         .light-mode .event-card {
-            background: #ffffff;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(37, 99, 235, 0.1);
         }
 
         .event-card:hover {
@@ -1483,6 +1503,102 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 2rem;
+        }
+
+        /* Contact Form Styles */
+        .contact-form-container {
+            max-width: 600px;
+            margin: 3rem auto 0;
+        }
+
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: 'Segoe UI', sans-serif;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .light-mode #contact-form input,
+        .light-mode #contact-form textarea {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+        }
+
+        .light-mode #contact-form input:focus,
+        .light-mode #contact-form textarea:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        #contact-form input::placeholder,
+        #contact-form textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        #contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        #contact-form button[type="submit"] {
+            width: 100%;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1.05rem;
+        }
+
+        .form-status {
+            margin-top: 1rem;
+            font-weight: 600;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 1rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+        }
+
+        .form-status.success {
+            color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            opacity: 1;
+        }
+
+        .light-mode .form-status.success {
+            background: rgba(34, 197, 94, 0.08);
+        }
+
+        .form-status.error {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            opacity: 1;
+        }
+
+        .light-mode .form-status.error {
+            background: rgba(239, 68, 68, 0.08);
         }
 
         /* Footer */
@@ -1672,30 +1788,81 @@
 
         <!-- Floating Elements -->
         <div class="floating-elements">
-            <!-- Floating SVG Icons -->
+            <!-- Professional Data Science & Analytics Floating Icons -->
+            
+            <!-- 1. Bar Chart Icon -->
             <div class="float-icon">
-                <svg viewBox="0 0 24 24"><path d="M3 13h2v8H3v-8zm4-5h2v13H7V8zm4-5h2v18h-2V3zm4 7h2v11h-2V10zm4-4h2v15h-2V6z"/></svg>
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M3 13h2v8H3v-8zm4-5h2v13H7V8zm4-5h2v18h-2V3zm4 7h2v11h-2V10zm4-4h2v15h-2V6z"/></svg>
             </div>
+            
+            <!-- 2. Line Graph Trend Icon -->
             <div class="float-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12 4v8l6 3.5"/></svg>
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M3.5 18.5l6-6 4 4L22 6.5"/><path fill="url(#iconGradient)" d="M14 6.5h8v8"/></svg>
             </div>
+            
+            <!-- 3. Pie Chart Icon -->
             <div class="float-icon">
-                <svg viewBox="0 0 24 24"><path d="M3.5 18.5l6-6 4 4L22 6.5"/><path d="M14 6.5h8v8"/></svg>
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 2v8h8c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8z"/></svg>
             </div>
+            
+            <!-- 4. Dashboard Panel Icon -->
             <div class="float-icon">
-                <svg viewBox="0 0 24 24"><circle cx="7" cy="14" r="3"/><circle cx="11" cy="6" r="3"/><circle cx="16.5" cy="18" r="3"/><path d="M9.2 12.3l2.6-4.6M13.4 7.3l2.2 8.4"/></svg>
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
             </div>
+            
+            <!-- 5. Database Icon -->
             <div class="float-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><ellipse fill="url(#iconGradient)" cx="12" cy="5" rx="8" ry="3"/><path fill="url(#iconGradient)" d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path fill="url(#iconGradient)" d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg>
             </div>
+            
+            <!-- 6. Magnifying Glass (Data Analysis) Icon -->
             <div class="float-icon">
-                <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/></svg>
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
             </div>
+            
+            <!-- 7. AI Neural Network Icon -->
             <div class="float-icon">
-                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                <svg viewBox="0 0 24 24"><circle fill="url(#iconGradient)" cx="7" cy="14" r="2.5"/><circle fill="url(#iconGradient)" cx="11" cy="6" r="2.5"/><circle fill="url(#iconGradient)" cx="16.5" cy="18" r="2.5"/><circle fill="url(#iconGradient)" cx="17" cy="8" r="2.5"/><path fill="url(#iconGradient)" d="M9.2 12.3l2.6-4.6M13.4 7.3l2.2 8.4M14.5 9.5l-3 4"/></svg>
             </div>
+            
+            <!-- 8. Trend Arrow Upward Icon -->
             <div class="float-icon">
-                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg>
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+            </div>
+            
+            <!-- 9. Analytics Dashboard Grid Icon -->
+            <div class="float-icon">
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/></svg>
+            </div>
+            
+            <!-- 10. Stakeholder People Icon -->
+            <div class="float-icon">
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </div>
+            
+            <!-- 11. Team Collaboration Icon -->
+            <div class="float-icon">
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M12 12.75c1.63 0 3.07.39 4.24.9 1.08.48 1.76 1.56 1.76 2.73V18H6v-1.61c0-1.18.68-2.26 1.76-2.73 1.17-.52 2.61-.91 4.24-.91zM4 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm1.13 1.1c-.37-.06-.74-.1-1.13-.1-.99 0-1.93.21-2.78.58C.48 14.9 0 15.62 0 16.43V18h4.5v-1.61c0-.83.23-1.61.63-2.29zM20 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 3.43c0-.81-.48-1.53-1.22-1.85-.85-.37-1.79-.58-2.78-.58-.39 0-.76.04-1.13.1.4.68.63 1.46.63 2.29V18H24v-1.57zM12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/></svg>
+            </div>
+            
+            <!-- 12. Business Growth Chart Icon -->
+            <div class="float-icon">
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2.5 2.1h-15V5.1h15v14zm0-16.1h-15c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+            </div>
+            
+            <!-- 13. KPI Metrics Icon -->
+            <div class="float-icon">
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-1.5v-2.5h-3V17H8v-6.5H6.5V9h3V6.5H11V9h3v1.5h-3V13h1.5v4z"/></svg>
+            </div>
+            
+            <!-- 14. Research Analysis Icon -->
+            <div class="float-icon">
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+            </div>
+            
+            <!-- 15. Machine Learning Model Icon -->
+            <div class="float-icon">
+                <svg viewBox="0 0 24 24"><path fill="url(#iconGradient)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/><circle fill="url(#iconGradient)" cx="12" cy="12" r="3"/></svg>
             </div>
 
             <!-- Particles -->
@@ -2506,8 +2673,20 @@
             <div class="contact-content">
                 <p>Feel free to reach out for collaborations or opportunities!</p>
                 <p>Open to entry-level roles in Data Science, Data Analytics, and Business Analytics.</p>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-container scroll-reveal">
+                    <form id="contact-form" action="https://formspree.io/f/mreaqpnp" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <p id="form-status" class="form-status"></p>
+                    </form>
+                </div>
+
                 <div class="contact-buttons">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mukeshram1590@gmail.com" target="_blank" class="btn btn-primary">Email Me</a>
                     <a href="https://www.linkedin.com/in/mukeshram-s" class="btn btn-primary" target="_blank">LinkedIn</a>
                     <a href="https://github.com/Mukeshram-07" class="btn btn-primary" target="_blank">GitHub</a>
                     <a href="https://drive.google.com/file/d/1gojm-HGy3tV2LnGfv6ARIV8Ncj8pW0JF/view" class="btn btn-primary" target="_blank">Resume</a>
@@ -2642,7 +2821,8 @@
                 });
             },
             {
-                threshold: 0.1
+                threshold: 0.15,
+                rootMargin: "0px 0px -80px 0px"
             }
         );
 
@@ -2651,12 +2831,36 @@
         });
 
         // 3. PARALLAX SCROLL EFFECT FOR FLOATING ELEMENTS
+        let ticking = false;
+
+        // Random positioning for floating icons on load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll(".float-icon").forEach((icon, index) => {
+                // Random horizontal position (5% to 95%)
+                const randomLeft = Math.random() * 90 + 5;
+                // Random vertical position distributed across entire page (0% to 280%)
+                const randomTop = Math.random() * 280;
+                
+                icon.style.left = randomLeft + "%";
+                icon.style.top = randomTop + "%";
+            });
+        });
+        
         window.addEventListener("scroll", () => {
-            const scrollY = window.scrollY;
-            const floatingElements = document.querySelector(".floating-elements");
-            
-            if (floatingElements) {
-                floatingElements.style.transform = "translateY(" + scrollY * 0.25 + "px)";
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+
+                    // Individual parallax for each float icon
+                    document.querySelectorAll(".float-icon").forEach((icon, index) => {
+                        const speed = 0.1 + (index % 5) * 0.015;
+                        const offset = scrollY * speed;
+                        icon.style.transform = "translateY(" + offset + "px)";
+                    });
+                    
+                    ticking = false;
+                });
+                ticking = true;
             }
         });
 
@@ -2709,6 +2913,111 @@
                 document.getElementById('navLinks').classList.remove('active');
             });
         });
+
+        // ==================== CONTACT FORM SUBMISSION ====================
+        const form = document.getElementById("contact-form");
+        const status = document.getElementById("form-status");
+        const submitButton = form ? form.querySelector('button[type="submit"]') : null;
+
+        if (form && status && submitButton) {
+            const originalButtonText = submitButton.textContent;
+
+            form.addEventListener("submit", async function(e) {
+                e.preventDefault();
+
+                // Clear previous status
+                status.classList.remove("success", "error");
+                status.style.opacity = "0";
+
+                // Show loading state
+                submitButton.disabled = true;
+                submitButton.textContent = "Sending message...";
+                submitButton.style.opacity = "0.7";
+                submitButton.style.cursor = "not-allowed";
+
+                // Small delay for better UX
+                await new Promise(resolve => setTimeout(resolve, 300));
+
+                const data = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Success
+                        status.innerHTML = "✓ Message submitted successfully!";
+                        status.classList.add("success");
+                        status.style.opacity = "1";
+
+                        // Clear form
+                        form.reset();
+
+                        // Reset button
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalButtonText;
+                        submitButton.style.opacity = "1";
+                        submitButton.style.cursor = "pointer";
+
+                        // Hide success message after 4 seconds
+                        setTimeout(() => {
+                            status.style.opacity = "0";
+                            setTimeout(() => {
+                                status.innerHTML = "";
+                                status.classList.remove("success");
+                            }, 300);
+                        }, 4000);
+
+                    } else {
+                        // Error response
+                        status.innerHTML = "✗ Oops! Something went wrong. Please try again.";
+                        status.classList.add("error");
+                        status.style.opacity = "1";
+
+                        // Reset button
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalButtonText;
+                        submitButton.style.opacity = "1";
+                        submitButton.style.cursor = "pointer";
+
+                        // Hide error message after 4 seconds
+                        setTimeout(() => {
+                            status.style.opacity = "0";
+                            setTimeout(() => {
+                                status.innerHTML = "";
+                                status.classList.remove("error");
+                            }, 300);
+                        }, 4000);
+                    }
+
+                } catch (error) {
+                    // Network error
+                    status.innerHTML = "✗ Network error. Please check your connection and try again.";
+                    status.classList.add("error");
+                    status.style.opacity = "1";
+
+                    // Reset button
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                    submitButton.style.opacity = "1";
+                    submitButton.style.cursor = "pointer";
+
+                    // Hide error message after 4 seconds
+                    setTimeout(() => {
+                        status.style.opacity = "0";
+                        setTimeout(() => {
+                            status.innerHTML = "";
+                            status.classList.remove("error");
+                        }, 300);
+                    }, 4000);
+                }
+            });
+        }
     </script>
 </body>
 </html>
