@@ -14,7 +14,7 @@ const cardVariants = {
 };
 
 const GradIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M22 10L12 5 2 10l10 5 10-5z" />
     <path d="M6 12.5v4.5c3.5 2 8.5 2 12 0v-4.5" />
   </svg>

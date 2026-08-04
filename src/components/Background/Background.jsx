@@ -4,6 +4,7 @@ export default function Background() {
   const canvasRef = useRef(null);
   const animRef = useRef(null);
   const mouseRef = useRef({ x: -9999, y: -9999 });
+  const activeRef = useRef(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -11,6 +12,9 @@ export default function Background() {
     const ctx = canvas.getContext('2d');
     let W, H, particles = [];
     const PC = 45;
+
+    const onVis = () => { activeRef.current = document.visibilityState === 'visible'; };
+    document.addEventListener('visibilitychange', onVis);
 
     function resize() {
       W = canvas.width = window.innerWidth;
@@ -29,6 +33,7 @@ export default function Background() {
     }
 
     function draw() {
+      if (!activeRef.current) { animRef.current = requestAnimationFrame(draw); return; }
       ctx.clearRect(0, 0, W, H);
 
       const blobs = [
@@ -101,6 +106,7 @@ export default function Background() {
       cancelAnimationFrame(animRef.current);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('mousemove', onMouse);
+      document.removeEventListener('visibilitychange', onVis);
     };
   }, []);
 

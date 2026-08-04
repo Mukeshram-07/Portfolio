@@ -11,6 +11,7 @@ function JourneyNode({ milestone, index, isLast }) {
   return (
     <div
       ref={ref}
+      role="listitem"
       className={`${styles.node} ${milestone.year === 'Present' ? styles.present : ''}`}
     >
       {/* Animated connecting line */}

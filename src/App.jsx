@@ -17,6 +17,8 @@ import Experience from './components/Experience/Experience';
 import Certifications from './components/Certifications/Certifications';
 import Achievements from './components/Achievements/Achievements';
 import Journey from './components/Journey/Journey';
+import Community from './components/Community/Community';
+import Exploring from './components/Exploring/Exploring';
 import Contact from './components/Contact/Contact';
 
 const Intro = lazy(() => import('./components/Intro/Intro'));
@@ -178,6 +180,8 @@ export default function App() {
               <Certifications />
               <Achievements />
               <Journey />
+              <Community />
+              <Exploring />
               <Contact />
             </main>
 
