@@ -1,0 +1,328 @@
+/* ─────────────────────────────────────────────────────────
+   HERO — Cinematic AI background
+   Apple × OpenAI × Linear × Vercel
+   ───────────────────────────────────────────────────────── */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 7rem 2rem 5rem;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* ── Deep navy base gradient ─────────────────────────── */
+.baseBg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 130% 80% at 50% -5%,
+      #0d1340 0%, #060816 55%, #030610 100%);
+  z-index: 0;
+}
+
+body.light .baseBg {
+  background:
+    radial-gradient(ellipse 130% 80% at 50% -5%,
+      #ecefff 0%, #f7f8fc 55%, #fafafa 100%);
+}
+
+/* ── Ambient glow blobs — very low opacity ───────────── */
+.blobA,
+.blobB,
+.blobC {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  z-index: 0;
+  animation: blobDrift 16s ease-in-out infinite alternate;
+}
+
+.blobA {
+  top: -15%; left: 15%;
+  width: 700px; height: 600px;
+  background: radial-gradient(ellipse,
+    rgba(99, 102, 241, 0.16) 0%, transparent 65%);
+  animation-duration: 18s;
+}
+
+.blobB {
+  top: 25%; right: -10%;
+  width: 550px; height: 550px;
+  background: radial-gradient(ellipse,
+    rgba(139, 92, 246, 0.12) 0%, transparent 65%);
+  animation-duration: 14s;
+  animation-direction: alternate-reverse;
+}
+
+.blobC {
+  bottom: -10%; left: -8%;
+  width: 480px; height: 480px;
+  background: radial-gradient(ellipse,
+    rgba(34, 211, 238, 0.09) 0%, transparent 65%);
+  animation-duration: 20s;
+}
+
+@keyframes blobDrift {
+  0%   { transform: translate(0px, 0px)   scale(1);    }
+  33%  { transform: translate(20px, -18px) scale(1.04); }
+  66%  { transform: translate(-15px, 12px) scale(0.97); }
+  100% { transform: translate(10px, -25px) scale(1.03); }
+}
+
+/* Light theme — barely visible blobs */
+body.light .blobA {
+  background: radial-gradient(ellipse, rgba(79,70,229,0.07) 0%, transparent 65%);
+}
+body.light .blobB {
+  background: radial-gradient(ellipse, rgba(124,58,237,0.05) 0%, transparent 65%);
+}
+body.light .blobC {
+  background: radial-gradient(ellipse, rgba(8,145,178,0.04) 0%, transparent 65%);
+}
+
+/* ── Neural / aurora canvas ──────────────────────────── */
+.auroraCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Text content ────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 780px;
+  width: 100%;
+}
+
+/* ── Name ────────────────────────────────────────────── */
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 9.5vw, 7.2rem);
+  font-weight: 800;
+  letter-spacing: -0.044em;
+  line-height: 0.97;
+  margin-bottom: 1.05rem;
+
+  /* Animated gradient text */
+  background: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #c7d2fe 28%,
+    #a5b4fc 52%,
+    #c4b5fd 76%,
+    #e879f9 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: nameShimmer 10s ease infinite;
+}
+
+@keyframes nameShimmer {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+body.light .name {
+  background: linear-gradient(
+    135deg,
+    #0f0c29 0%,
+    #1e1b4b 30%,
+    #312e81 55%,
+    #5b21b6 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: none;
+}
+
+/* ── Role/title ──────────────────────────────────────── */
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(0.68rem, 1.25vw, 0.84rem);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(165, 180, 252, 0.75);
+  margin-bottom: 1.6rem;
+}
+
+body.light .title {
+  color: var(--blue);
+  opacity: 0.85;
+}
+
+/* ── Headline paragraph ──────────────────────────────── */
+.headline {
+  font-size: clamp(0.93rem, 1.7vw, 1.1rem);
+  color: var(--text2);
+  max-width: 580px;
+  line-height: 1.84;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+/* ── CTA buttons ─────────────────────────────────────── */
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.7rem 1.4rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease;
+}
+
+/* Primary — gradient fill */
+.primary {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 3px 18px rgba(79, 70, 229, 0.45);
+}
+.primary:hover {
+  box-shadow: 0 8px 30px rgba(79, 70, 229, 0.6);
+}
+
+/* Glass — semi-transparent */
+.glass {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(226, 232, 240, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.glass:hover {
+  background: rgba(99, 102, 241, 0.09);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #e2e8f0;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.18);
+}
+
+/* Outline */
+.outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(148, 163, 184, 0.8);
+}
+.outline:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  color: rgba(226, 232, 240, 0.9);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+/* Light mode overrides */
+body.light .glass {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #e4e4e7;
+  color: var(--text2);
+}
+body.light .glass:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: rgba(79, 70, 229, 0.04);
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.15);
+}
+body.light .outline {
+  border-color: #e4e4e7;
+  color: var(--text3);
+}
+body.light .outline:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: rgba(79, 70, 229, 0.04);
+}
+
+/* Arrow inside primary */
+.arrow {
+  opacity: 0.75;
+  flex-shrink: 0;
+  transition: transform 0.22s ease;
+}
+.primary:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* ── Scroll indicator ────────────────────────────────── */
+.scrollHint {
+  position: absolute;
+  bottom: 2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  z-index: 3;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(
+    to bottom,
+    rgba(99, 102, 241, 0.6),
+    transparent
+  );
+  animation: scrollDrop 2.6s ease-in-out infinite;
+}
+
+@keyframes scrollDrop {
+  0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  35%  { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+}
+
+.scrollLabel {
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-family: var(--font-display);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero { padding: 6rem 1.5rem 5rem; }
+  .headline { font-size: 0.94rem; margin-bottom: 2.5rem; }
+  .actions { gap: 0.5rem; }
+  .btn { padding: 0.65rem 1.1rem; font-size: 0.83rem; }
+  .scrollHint { display: none; }
+}

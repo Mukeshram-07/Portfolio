@@ -1,0 +1,195 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ── Bio card ────────────────────────────────────────────── */
+.bio {
+  padding: 2rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+body.light .bio {
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+}
+
+.bioAccent {
+  position: absolute;
+  top: -30%;
+  right: -15%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.quickIntro {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.85rem;
+}
+
+.bioText {
+  font-size: 1.02rem;
+  color: var(--text2);
+  line-height: 1.85;
+  font-weight: 400;
+  margin-bottom: 1.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+body.light .bioText { color: var(--text2); }
+
+.specsLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 0.7rem;
+}
+
+.specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.specTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.8rem;
+  border-radius: 100px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--blue-light);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  letter-spacing: 0.01em;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+body.light .specTag {
+  color: var(--blue);
+  background: rgba(79, 70, 229, 0.07);
+  border-color: rgba(79, 70, 229, 0.18);
+}
+
+.specTag:hover {
+  background: rgba(99, 102, 241, 0.14);
+  border-color: rgba(99, 102, 241, 0.35);
+}
+
+/* ── Strength cards grid ─────────────────────────────────── */
+.strengthGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.strengthCard {
+  padding: 1.25rem 1.35rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.strengthCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.strengthCard:hover::before { transform: scaleX(1); }
+
+.strengthCard:hover {
+  border-color: rgba(99, 102, 241, 0.28);
+  box-shadow: var(--shadow-blue);
+}
+
+body.light .strengthCard {
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+body.light .strengthCard:hover {
+  border-color: rgba(79, 70, 229, 0.25);
+  box-shadow: var(--shadow-blue);
+}
+
+.sIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-light);
+  margin-bottom: 0.8rem;
+  transition: background var(--transition);
+}
+
+body.light .sIcon {
+  background: rgba(79, 70, 229, 0.08);
+  border-color: rgba(79, 70, 229, 0.15);
+  color: var(--blue);
+}
+
+.strengthCard:hover .sIcon {
+  background: rgba(99, 102, 241, 0.16);
+}
+
+.sTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.sDesc {
+  font-size: 0.79rem;
+  color: var(--text3);
+  line-height: 1.6;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; }
+  .strengthGrid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .bio { padding: 1.5rem 1.25rem; }
+  .strengthGrid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .strengthGrid { grid-template-columns: 1fr; }
+}

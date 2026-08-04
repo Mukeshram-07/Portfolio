@@ -1,0 +1,105 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+body.light .card {
+  background: var(--surface);
+  border-color: #e4e4e7;
+  box-shadow: var(--shadow-md);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--grad2);
+  transform: scaleX(0);
+  transition: transform 0.35s ease;
+  transform-origin: left;
+}
+
+.card:hover::before { transform: scaleX(1); }
+
+.card:hover {
+  border-color: rgba(99,102,241,0.28);
+  box-shadow: var(--shadow-blue);
+  transform: translateY(-4px);
+}
+
+body.light .card:hover {
+  border-color: rgba(79,70,229,0.25);
+  box-shadow: var(--shadow-blue);
+}
+
+.iconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: var(--grad2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 3px 10px rgba(79,70,229,0.35);
+}
+
+.iconWrap svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  stroke-width: 1.75;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.degree {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.duration {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+  margin-bottom: 0.55rem;
+  font-family: var(--font-display);
+}
+
+body.light .duration { color: var(--blue); }
+
+.inst {
+  color: var(--text2);
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.loc {
+  color: var(--text3);
+  font-size: 0.8rem;
+}

@@ -1,0 +1,177 @@
+/* ============================================================
+   DESIGN SYSTEM — Premium AI Portfolio
+   Inspired by: Vercel · Linear · Anthropic · Stripe
+   ============================================================ */
+
+:root {
+  /* ── Core Backgrounds ─────────────────────────────────── */
+  --bg:        #07091a;
+  --bg2:       #0d1028;
+  --bg3:       #131830;
+  --bg-card:   rgba(13, 18, 40, 0.72);
+  --bg-input:  rgba(9, 13, 30, 0.8);
+  --bg-hover:  rgba(20, 28, 60, 0.6);
+
+  /* ── Surfaces ─────────────────────────────────────────── */
+  --surface:   rgba(13, 18, 40, 0.72);
+  --surface2:  rgba(18, 26, 55, 0.92);
+  --surface3:  rgba(24, 32, 68, 0.5);
+
+  /* ── Borders ──────────────────────────────────────────── */
+  --border:    rgba(255, 255, 255, 0.07);
+  --border-h:  rgba(99, 102, 241, 0.5);
+  --border-s:  rgba(255, 255, 255, 0.04);
+
+  /* ── Brand Colors ─────────────────────────────────────── */
+  --blue:      #6366f1;
+  --blue2:     #4f46e5;
+  --blue-light: #818cf8;
+  --purple:    #a78bfa;
+  --cyan:      #22d3ee;
+  --green:     #34d399;
+  --amber:     #fbbf24;
+  --red:       #f87171;
+
+  /* ── Text ─────────────────────────────────────────────── */
+  --text:      #f1f5f9;
+  --text2:     #94a3b8;
+  --text3:     #64748b;
+  --text4:     #475569;
+
+  /* ── Gradients ────────────────────────────────────────── */
+  --grad:      linear-gradient(135deg, #6366f1, #a78bfa);
+  --grad2:     linear-gradient(135deg, #4f46e5, #7c3aed);
+  --grad-glow: linear-gradient(135deg, rgba(99,102,241,0.4), rgba(167,139,250,0.2));
+
+  /* ── Shadows ──────────────────────────────────────────── */
+  --shadow-xs: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-md: 0 8px 28px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-blue: 0 8px 28px rgba(99,102,241,0.25);
+  --shadow-glow: 0 0 40px rgba(99,102,241,0.15);
+
+  /* ── Glow ─────────────────────────────────────────────── */
+  --glow: rgba(99, 102, 241, 0.2);
+
+  /* ── Typography ───────────────────────────────────────── */
+  --font: 'Inter', 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ── Radii ────────────────────────────────────────────── */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius:    14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 40px;
+
+  /* ── Transitions ──────────────────────────────────────── */
+  --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:  cubic-bezier(0, 0, 0.2, 1);
+  --ease-in:   cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   BASE RESETS
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(99,102,241,0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.5); }
+
+/* Selection */
+::selection { background: rgba(99,102,241,0.2); color: var(--text); }
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+img { max-width: 100%; display: block; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.section {
+  padding: 6rem 2rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 5rem 1.5rem; max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 4rem 1.25rem; }
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+.gradient-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium card base */
+.card-base {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+/* Tag / badge */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-2xl);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border: 1px solid var(--border);
+  color: var(--text3);
+  background: var(--surface3);
+}
