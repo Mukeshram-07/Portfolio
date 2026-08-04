@@ -5,7 +5,7 @@ import {
   FileText, Scissors, Cpu, Database, Search, Brain,
   MessageSquare, User, Code, BarChart2, TrendingUp,
   Server, Shield, Cloud, Mail, Inbox, Bot,
-  Calendar, Tag, Zap, Clock,
+  Calendar, Tag, Zap,
 } from 'lucide-react';
 import styles from './ProjectDetailModal.module.css';
 import { getProjectDetail } from '../../data/projectDetails';

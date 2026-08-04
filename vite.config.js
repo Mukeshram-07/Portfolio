@@ -10,6 +10,8 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom'],
           framer: ['framer-motion'],
+          gsap:   ['gsap'],
+          lucide: ['lucide-react'],
         }
       }
     }

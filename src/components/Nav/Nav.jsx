@@ -49,7 +49,7 @@ export default function Nav() {
             href={`#${id}`}
             className={`${styles.item} ${isActive ? styles.active : ''}`}
             aria-label={label}
-            aria-current={isActive ? 'true' : undefined}
+            aria-current={isActive ? 'page' : undefined}
             onMouseEnter={() => setHoveredId(id)}
             onMouseLeave={() => setHoveredId(null)}
           >
