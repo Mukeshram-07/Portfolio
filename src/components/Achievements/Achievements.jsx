@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Building2, Award, Trophy } from 'lucide-react';
 import SectionTitle from '../shared/SectionTitle';
 import styles from './Achievements.module.css';
-import { EVENTS, ACHIEVEMENTS } from '../../data/portfolioData';
+import { LEADERSHIP_EVENTS, ACHIEVEMENTS } from '../../data/portfolioData';
 
 /* ── Tag colors ─────────────────────────────────────────── */
 const TAG_COLORS = {
@@ -339,7 +339,7 @@ export default function Achievements() {
         >
           <SubHeading icon={Trophy} title="Events Conducted" />
           <InfiniteCarousel
-            items={EVENTS}
+            items={LEADERSHIP_EVENTS}
             speed={30000}
             renderCard={(item, i) => <EventCard key={`ev-${i}`} item={item} />}
           />

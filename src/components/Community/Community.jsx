@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Calendar, Building2, Mic2,
+  Calendar, Building2,
   Globe, ExternalLink,
   FlaskConical, Award, CheckCircle2,
   FileText, ChevronDown, ChevronUp, Users,
@@ -9,7 +9,6 @@ import {
 import SectionTitle from '../shared/SectionTitle';
 import styles from './Community.module.css';
 import {
-  LEADERSHIP_EVENTS,
   LEADERSHIP_ROLES,
   COMMUNITY_CONTRIBUTIONS,
   RESEARCH_PAPERS,
@@ -104,20 +103,6 @@ function TechnicalLeadership() {
   return (
     <section id="community" className="section" aria-label="Technical Leadership and Community">
       <SectionTitle title="Technical Leadership" subtitle="Community & Impact" />
-
-      {/* Events Conducted */}
-      <SubHeading icon={Mic2} title="Events Conducted" />
-      <motion.div
-        className={styles.grid}
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-40px' }}
-      >
-        {LEADERSHIP_EVENTS.map((item) => (
-          <LeadershipCard key={item.title} item={item} />
-        ))}
-      </motion.div>
 
       {/* Leadership Roles */}
       <SubHeading icon={Users} title="Leadership Roles" />

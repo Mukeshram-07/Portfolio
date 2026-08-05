@@ -370,20 +370,6 @@ export const JOURNEY_MILESTONES = [
   { year: 'Present', title: 'Building Production-Ready AI Systems', desc: 'Focused on LLMs, RAG pipelines, AI Agents, and scalable ML deployments.' },
 ];
 
-export const EVENTS = [
-  { title: 'AI Conclave 2026', year: '2026', org: 'DSU – AI & DS Department', desc: 'Co-organized featuring 5 guest speakers from IIIT. Technical talks and panel discussions on emerging AI technologies and research trends.' },
-  { title: 'Promptify – AI Image Prompt Engineering', year: '2026', org: 'DSU – Journal Club', desc: 'Organized event on image prompt engineering using generative AI tools. Guided students in prompt design and AI creativity workflows.' },
-  { title: 'AI Summit – Research Paper Presentation', year: '2026', org: 'DSU – AI & DS Department', desc: 'Intra-college AI summit featuring research paper presentations, technical discussions, and knowledge sharing among students and faculty.' },
-  { title: 'uMagineDX & ICT Academy – Panel Discussion', year: '2026', org: 'ICT Academy', desc: 'Led coordination for industry panel discussion bringing together AI/DS experts and students for structured knowledge exchange.' },
-  { title: 'Tech Fest – Project Expo', year: '2026', org: 'School of Engineering', desc: 'Coordinated the School of Engineering Project Expo featuring innovative engineering projects across multiple departments. Managed evaluation, participants, and presentations.' },
-  { title: 'Unity AR/VR Training Program', year: '2026', org: 'Department of AI & Data Science', desc: 'Organized an immersive Unity AR/VR training program introducing students to virtual reality development and Unity-based application development.' },
-  { title: 'Smartathon – 12 Hour Hackathon', year: '2026', org: 'Department of AI & Data Science', desc: 'Organized a 12-hour intra-college Smartathon encouraging innovation, rapid prototyping, teamwork, and problem-solving through intensive hackathon challenges.' },
-  { title: 'AI Expert Exchange – Group Discussion', year: '2025', org: 'DSU – Journal Club', desc: 'Organized interactive sessions focused on current AI trends and industry perspectives with expert practitioners.' },
-  { title: 'Startup Spark – Innovation Event', year: '2025', org: 'DSU – Journal Club', desc: 'Coordinated event showcasing student startups and entrepreneurial ventures in AI/DS domain.' },
-  { title: 'BIYOnd – Data Analytics Event', year: '2025', org: 'DSU – AI & DS Department', desc: 'Managed comprehensive data analytics event featuring workshops and competitions.' },
-  { title: 'Neura Fest – Project Expo', year: '2025', org: 'DSU – AI & DS Department', desc: 'Supervised large-scale project exhibition showcasing innovative AI and data science projects from students across departments.' },
-];
-
 export const ACHIEVEMENTS = [
   {
     title: '1st Prize – SYNERGIA 0.1 National Level Hackathon',
@@ -416,14 +402,6 @@ export const ACHIEVEMENTS = [
     result: '3rd Place',
     desc: 'Secured third position in competitive coding competition demonstrating strong algorithmic problem-solving skills.',
     tags: ['Coding', 'Competition'],
-  },
-  {
-    title: 'Open Source Contributor',
-    year: 'Ongoing',
-    org: 'GitHub',
-    result: 'Active',
-    desc: 'Active open source contributor managing frontend and backend repositories. Building reusable components, REST APIs, and AI-integrated tools shared with the developer community.',
-    tags: ['Open Source', 'Frontend', 'Backend', 'Community'],
   },
 ];
 
