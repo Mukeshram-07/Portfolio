@@ -3,10 +3,14 @@
   "short_name": "Mukeshram S",
   "description": "Portfolio of Mukeshram S – ML Engineer specializing in LLMs, RAG, AI Agents, and Data Engineering.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#050814",
   "theme_color": "#050814",
   "lang": "en-IN",
+  "dir": "ltr",
+  "categories": ["technology", "portfolio", "professional"],
   "icons": [
     {
       "src": "/icon-192.png",
@@ -19,6 +23,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/profile.jpg",
+      "sizes": "800x800",
+      "type": "image/jpeg",
+      "purpose": "any"
     }
   ]
 }

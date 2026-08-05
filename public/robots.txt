@@ -30,5 +30,14 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
+User-agent: Bytespider
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
 # Sitemap
 Sitemap: https://mukeshrams.in/sitemap.xml

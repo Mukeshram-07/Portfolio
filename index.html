@@ -10,17 +10,23 @@
   <link rel="canonical" href="https://mukeshrams.in/" />
   <title>Mukeshram S | Machine Learning Engineer – LLMs, RAG, AI Agents & Data Engineering</title>
   <meta name="description" content="Mukeshram S is a Machine Learning Engineer specializing in LLMs, RAG pipelines, AI Agents, MCP, and Data Engineering. Final-year AI & Data Science student at DSU, Tiruchirappalli. View projects, certifications, and experience." />
+  <meta name="keywords" content="Mukeshram S, Machine Learning Engineer, AI Engineer, Data Scientist, LLMs, RAG, AI Agents, Python, TensorFlow, PyTorch, Data Engineering, Tiruchirappalli, Tamil Nadu, India, MCP, Model Context Protocol" />
   <meta name="author" content="Mukeshram S" />
+  <meta name="creator" content="Mukeshram S" />
+  <meta name="publisher" content="Mukeshram S" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <meta name="bingbot" content="index, follow" />
   <meta name="theme-color" content="#050814" />
   <meta name="color-scheme" content="dark" />
+  <meta name="application-name" content="Mukeshram S Portfolio" />
   <meta name="generator" content="Vite + React" />
   <meta name="rating" content="general" />
   <meta name="revisit-after" content="7 days" />
   <meta name="language" content="English" />
   <meta name="copyright" content="Mukeshram S" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
   <!-- ═══════════════════════════════════════════════════
        GEO META TAGS
@@ -46,22 +52,31 @@
   <meta name="msapplication-config" content="none" />
 
   <!-- ═══════════════════════════════════════════════════
+       AUTHOR & SOCIAL PROFILE LINKS
+  ═══════════════════════════════════════════════════ -->
+  <link rel="author" href="https://www.linkedin.com/in/mukeshram-s" />
+  <link rel="me" href="https://github.com/Mukeshram-07" />
+  <link rel="me" href="https://twitter.com/mukeshrams" />
+
+  <!-- ═══════════════════════════════════════════════════
        OPEN GRAPH (Facebook, LinkedIn, Discord, Slack)
   ═══════════════════════════════════════════════════ -->
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://mukeshrams.in/" />
   <meta property="og:title" content="Mukeshram S | Machine Learning Engineer – LLMs, RAG & AI Agents" />
   <meta property="og:description" content="ML Engineer building production-ready AI systems with LLMs, RAG pipelines, AI Agents, MCP, and Data Engineering. 12 projects, 17 certifications, 5 internships." />
-  <meta property="og:image" content="https://mukeshrams.in/icon-512.png" />
-  <meta property="og:image:alt" content="Mukeshram S – Machine Learning Engineer Portfolio" />
-  <meta property="og:image:width" content="512" />
-  <meta property="og:image:height" content="512" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image" content="https://mukeshrams.in/profile.jpg" />
+  <meta property="og:image:secure_url" content="https://mukeshrams.in/profile.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:image:alt" content="Mukeshram S – Machine Learning Engineer" />
   <meta property="og:site_name" content="Mukeshram S Portfolio" />
   <meta property="og:locale" content="en_IN" />
   <meta property="profile:first_name" content="Mukeshram" />
   <meta property="profile:last_name" content="S" />
   <meta property="profile:username" content="Mukeshram-07" />
+  <meta property="article:author" content="https://www.linkedin.com/in/mukeshram-s" />
 
   <!-- ═══════════════════════════════════════════════════
        TWITTER / X CARD
@@ -71,15 +86,22 @@
   <meta name="twitter:creator" content="@mukeshrams" />
   <meta name="twitter:title" content="Mukeshram S | Machine Learning Engineer – LLMs, RAG & AI Agents" />
   <meta name="twitter:description" content="ML Engineer building production-ready AI systems with LLMs, RAG pipelines, AI Agents, MCP, and Data Engineering." />
-  <meta name="twitter:image" content="https://mukeshrams.in/icon-512.png" />
-  <meta name="twitter:image:alt" content="Mukeshram S – Machine Learning Engineer Portfolio" />
+  <meta name="twitter:image" content="https://mukeshrams.in/profile.jpg" />
+  <meta name="twitter:image:alt" content="Mukeshram S – Machine Learning Engineer" />
 
   <!-- ═══════════════════════════════════════════════════
        FONTS — preconnect first, then load
   ═══════════════════════════════════════════════════ -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ═══════════════════════════════════════════════════
+       PRELOAD CRITICAL ASSETS
+  ═══════════════════════════════════════════════════ -->
+  <link rel="preload" href="/profile.jpg" as="image" type="image/jpeg" />
 
   <!-- ═══════════════════════════════════════════════════
        STRUCTURED DATA — JSON-LD (SEO + AEO)
@@ -92,19 +114,32 @@
       {
         "@type": "Person",
         "@id": "https://mukeshrams.in/#person",
+        "mainEntityOfPage": { "@id": "https://mukeshrams.in/#profilepage" },
         "name": "Mukeshram S",
+        "alternateName": ["Mukesh Ram", "Mukeshrams", "Mukesh Ram S"],
         "givenName": "Mukeshram",
         "familyName": "S",
         "url": "https://mukeshrams.in",
         "image": {
           "@type": "ImageObject",
-          "url": "https://mukeshrams.in/icon-512.png",
-          "width": 512,
-          "height": 512
+          "@id": "https://mukeshrams.in/#personimage",
+          "url": "https://mukeshrams.in/profile.jpg",
+          "contentUrl": "https://mukeshrams.in/profile.jpg",
+          "width": 800,
+          "height": 800,
+          "caption": "Mukeshram S – Machine Learning Engineer, AI & Data Science",
+          "representativeOfPage": true,
+          "thumbnail": {
+            "@type": "ImageObject",
+            "url": "https://mukeshrams.in/icon-512.png",
+            "width": 512,
+            "height": 512
+          }
         },
         "sameAs": [
-          "https://linkedin.com/in/mukeshram-s",
+          "https://www.linkedin.com/in/mukeshram-s",
           "https://github.com/Mukeshram-07",
+          "https://twitter.com/mukeshrams",
           "https://mukeshramdatascience.blogspot.com/"
         ],
         "jobTitle": "Machine Learning Engineer",
@@ -179,6 +214,19 @@
           "description": "Designs and builds production-ready AI systems using Machine Learning, Large Language Models, RAG pipelines, AI Agents, and Data Engineering.",
           "skills": "Python, Machine Learning, Deep Learning, LLMs, RAG, AI Agents, LangChain, FastAPI, TensorFlow, PyTorch, Data Engineering, SQL, Power BI, AWS, Docker"
         },
+        "worksFor": {
+          "@type": "CollegeOrUniversity",
+          "name": "Dhanalakshmi Srinivasan University",
+          "alternateName": "DSU",
+          "url": "https://www.dsu.edu.in/",
+          "sameAs": "https://www.dsu.edu.in/",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tiruchirappalli",
+            "addressRegion": "Tamil Nadu",
+            "addressCountry": "IN"
+          }
+        },
         "alumniOf": {
           "@type": "CollegeOrUniversity",
           "name": "Dhanalakshmi Srinivasan University",
@@ -197,13 +245,27 @@
           "2nd Place – Tablitics Data Analytics Competition 2025 (Power BI)",
           "3rd Place – Coding Battle, QUBEIT'24, KRCE Trichy"
         ],
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "propertyID": "GitHub",
+            "value": "Mukeshram-07"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "LinkedIn",
+            "value": "mukeshram-s"
+          }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Professional Inquiries",
+          "url": "https://mukeshrams.in/#contact"
+        },
         "potentialAction": {
           "@type": "CommunicateAction",
           "target": "https://mukeshrams.in/#contact",
           "name": "Contact Mukeshram S"
-        },
-        "worksFor": {
-          "@id": "https://mukeshrams.in/#organization"
         }
       },
 
@@ -216,11 +278,16 @@
         "description": "Professional portfolio of Mukeshram S – Machine Learning Engineer specializing in LLMs, RAG, AI Agents, and Data Engineering.",
         "publisher": { "@id": "https://mukeshrams.in/#person" },
         "inLanguage": "en-IN",
-        "copyrightYear": "2025",
+        "copyrightYear": 2025,
         "copyrightHolder": { "@id": "https://mukeshrams.in/#person" },
+        "datePublished": "2025-01-01T00:00:00+05:30",
+        "dateModified": "2025-08-04T00:00:00+05:30",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://mukeshrams.in/#projects",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://mukeshrams.in/#projects?q={search_term_string}"
+          },
           "query-input": "required name=search_term_string"
         }
       },
@@ -228,17 +295,18 @@
       {
         "@type": "Organization",
         "@id": "https://mukeshrams.in/#organization",
-        "name": "Mukeshram S",
+        "name": "Mukeshram S – Portfolio",
         "url": "https://mukeshrams.in",
         "logo": {
           "@type": "ImageObject",
+          "@id": "https://mukeshrams.in/#orglogo",
           "url": "https://mukeshrams.in/icon-512.png",
           "width": 512,
           "height": 512
         },
         "founder": { "@id": "https://mukeshrams.in/#person" },
         "sameAs": [
-          "https://linkedin.com/in/mukeshram-s",
+          "https://www.linkedin.com/in/mukeshram-s",
           "https://github.com/Mukeshram-07"
         ]
       },
@@ -248,22 +316,30 @@
         "@id": "https://mukeshrams.in/#profilepage",
         "url": "https://mukeshrams.in",
         "name": "Mukeshram S | Machine Learning Engineer – LLMs, RAG & AI Agents",
+        "headline": "Mukeshram S | Machine Learning Engineer specializing in LLMs, RAG, AI Agents & Data Engineering",
         "description": "Portfolio of Mukeshram S – Machine Learning Engineer building production-ready AI systems with LLMs, RAG pipelines, AI Agents, and Data Engineering.",
+        "keywords": "Machine Learning, AI, LLMs, RAG, AI Agents, Data Engineering, Python, TensorFlow, PyTorch, MCP",
         "mainEntity": { "@id": "https://mukeshrams.in/#person" },
+        "primaryImageOfPage": { "@id": "https://mukeshrams.in/#personimage" },
+        "thumbnailUrl": "https://mukeshrams.in/profile.jpg",
         "isPartOf": { "@id": "https://mukeshrams.in/#website" },
-        "dateModified": "2026-08-04",
+        "datePublished": "2025-01-01T00:00:00+05:30",
+        "dateModified": "2025-08-04T00:00:00+05:30",
         "inLanguage": "en-IN",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://mukeshrams.in/"
-            }
-          ]
-        }
+        "breadcrumb": { "@id": "https://mukeshrams.in/#breadcrumb" }
+      },
+
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://mukeshrams.in/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mukeshrams.in/"
+          }
+        ]
       },
 
       {
@@ -277,52 +353,79 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@type": "SoftwareApplication",
+              "@type": "SoftwareSourceCode",
+              "@id": "https://mukeshrams.in/#project-alexvale",
               "name": "AlexVale Gmail MCP",
               "description": "Intelligent Gmail automation server built using Model Context Protocol (MCP). Enables AI assistants to securely read, search, summarize, and manage Gmail within LLM-powered workflows.",
-              "applicationCategory": "AI Automation",
-              "programmingLanguage": ["Python"],
+              "codeRepository": "https://github.com/Mukeshram-07/alexvale-gmail-mcp",
+              "programmingLanguage": { "@type": "ComputerLanguage", "name": "Python" },
+              "runtimePlatform": "Python",
+              "keywords": "Model Context Protocol, MCP, Gmail API, AI Automation, Python, FastMCP, OAuth, Email Automation",
+              "inLanguage": "en",
+              "isPartOf": { "@id": "https://mukeshrams.in/#projects" },
               "url": "https://github.com/Mukeshram-07/alexvale-gmail-mcp",
-              "author": { "@id": "https://mukeshrams.in/#person" }
+              "author": { "@id": "https://mukeshrams.in/#person" },
+              "creator": { "@id": "https://mukeshrams.in/#person" }
             }
           },
           {
             "@type": "ListItem",
             "position": 2,
             "item": {
-              "@type": "SoftwareApplication",
+              "@type": "SoftwareSourceCode",
+              "@id": "https://mukeshrams.in/#project-rag",
               "name": "Multimodal RAG System",
               "description": "Production-ready Retrieval-Augmented Generation system that ingests PDFs, performs semantic retrieval, and generates citation-aware answers using Large Language Models.",
-              "applicationCategory": "AI / Machine Learning",
-              "programmingLanguage": ["Python"],
+              "codeRepository": "https://github.com/Mukeshram-07/multimodal-rag",
+              "programmingLanguage": { "@type": "ComputerLanguage", "name": "Python" },
+              "runtimePlatform": "Python",
+              "keywords": "RAG, Retrieval-Augmented Generation, LLMs, ChromaDB, Vector Database, Sentence Transformers, FastAPI, PDF Processing",
+              "inLanguage": "en",
+              "isPartOf": { "@id": "https://mukeshrams.in/#projects" },
               "url": "https://github.com/Mukeshram-07/multimodal-rag",
-              "author": { "@id": "https://mukeshrams.in/#person" }
+              "author": { "@id": "https://mukeshrams.in/#person" },
+              "creator": { "@id": "https://mukeshrams.in/#person" }
             }
           },
           {
             "@type": "ListItem",
             "position": 3,
             "item": {
-              "@type": "SoftwareApplication",
+              "@type": "SoftwareSourceCode",
+              "@id": "https://mukeshrams.in/#project-aiagent",
               "name": "AI Agent for Data Scientists",
               "description": "AI-powered assistant for data scientists that automates data exploration, analysis, visualization, feature engineering, and ML workflows through a conversational interface.",
-              "applicationCategory": "AI Agents",
-              "programmingLanguage": ["Python", "React"],
+              "codeRepository": "https://github.com/Mukeshram-07/ai-agent-ds",
+              "programmingLanguage": [
+                { "@type": "ComputerLanguage", "name": "Python" },
+                { "@type": "ComputerLanguage", "name": "JavaScript" }
+              ],
+              "runtimePlatform": "Python",
+              "keywords": "AI Agent, LLM, Data Science, EDA, Feature Engineering, React, FastAPI, Plotly, Machine Learning Automation",
+              "inLanguage": "en",
+              "isPartOf": { "@id": "https://mukeshrams.in/#projects" },
               "url": "https://github.com/Mukeshram-07/ai-agent-ds",
-              "author": { "@id": "https://mukeshrams.in/#person" }
+              "author": { "@id": "https://mukeshrams.in/#person" },
+              "creator": { "@id": "https://mukeshrams.in/#person" }
             }
           },
           {
             "@type": "ListItem",
             "position": 4,
             "item": {
-              "@type": "SoftwareApplication",
+              "@type": "SoftwareSourceCode",
+              "@id": "https://mukeshrams.in/#project-neoguard",
               "name": "NeoGuard – IoT Health & Environment Monitor",
               "description": "Real-time IoT health and environment monitoring system with intelligent multi-channel alert dispatching via browser, SMS, and Telegram.",
-              "applicationCategory": "IoT / Backend",
-              "programmingLanguage": ["Node.js"],
+              "codeRepository": "https://github.com/Mukeshram-07/Neo-Guard",
+              "programmingLanguage": { "@type": "ComputerLanguage", "name": "JavaScript" },
+              "runtimePlatform": "Node.js",
+              "keywords": "IoT, Real-time Monitoring, Node.js, Express, MongoDB, Socket.IO, Twilio, Telegram Bot, Anomaly Detection",
+              "inLanguage": "en",
+              "isPartOf": { "@id": "https://mukeshrams.in/#projects" },
               "url": "https://github.com/Mukeshram-07/Neo-Guard",
-              "author": { "@id": "https://mukeshrams.in/#person" }
+              "author": { "@id": "https://mukeshrams.in/#person" },
+              "creator": { "@id": "https://mukeshrams.in/#person" }
             }
           }
         ]
